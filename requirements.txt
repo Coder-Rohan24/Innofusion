@@ -9,3 +9,4 @@ torch
 scikit-learn
 firebase-admin
 google-generativeai
+opencv-python 
