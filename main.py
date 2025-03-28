@@ -5,7 +5,7 @@ from routes.predict import predict_disease
 from routes.gemini import get_treatment
 import os
 from dotenv import load_dotenv
-
+import uvicorn
 # Load environment variables
 load_dotenv()
 
@@ -31,3 +31,7 @@ async def predict(request: Request, file: UploadFile = File(...)):
             
     formatted_treatment = treatment.replace("\n", "<br>")
     return templates.TemplateResponse("result.html", {"request": request, "disease": disease_name, "treatment": formatted_treatment})
+
+if __name__ == "__main__":
+    port = int(os.environ.get("PORT", 8000))  # Default to 8000 if PORT is not set
+    uvicorn.run(app, host="0.0.0.0", port=port)
