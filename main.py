@@ -1,11 +1,12 @@
-from fastapi import FastAPI, Request, Form, UploadFile, File
+from fastapi import FastAPI, Request, UploadFile, File
 from fastapi.staticfiles import StaticFiles
 from fastapi.templating import Jinja2Templates
 from routes.predict import predict_disease
 from routes.gemini import get_treatment
 import os
-from dotenv import load_dotenv
 import uvicorn
+import multiprocessing
+from dotenv import load_dotenv
 # Load environment variables
 load_dotenv()
 
