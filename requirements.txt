@@ -8,6 +8,3 @@ torch
 scikit-learn
 firebase-admin
 google-generativeai
-opencv-python 
-python-multipart
-tensorflow-cpu
