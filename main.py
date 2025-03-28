@@ -33,5 +33,13 @@ async def predict(request: Request, file: UploadFile = File(...)):
     return templates.TemplateResponse("result.html", {"request": request, "disease": disease_name, "treatment": formatted_treatment})
 
 if __name__ == "__main__":
-    port = int(os.environ.get("PORT", 8000))  # Default to 8000 if PORT is not set
-    uvicorn.run(app, host="0.0.0.0", port=port)
+    workers = multiprocessing.cpu_count() * 2 + 1  # Dynamically set workers
+    port = int(os.getenv("PORT", "10000"))  # Ensure PORT is set correctly
+
+    uvicorn.run(
+        "main:app",
+        host="0.0.0.0",
+        port=port,
+        log_level="info",
+        workers=workers  # Use multiple workers for performance
+    )
