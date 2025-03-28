@@ -8,7 +8,7 @@ torch
 scikit-learn
 firebase-admin
 google-generativeai
-tenserflow-cpu
+tensorflow-cpu
 python-multipart
 torchvision
 python-dotnev
