@@ -1,0 +1,10 @@
+fastapi
+uvicorn
+pydantic
+numpy
+pillow
+tensorflow
+torch
+scikit-learn
+firebase-admin
+google-generativeai
